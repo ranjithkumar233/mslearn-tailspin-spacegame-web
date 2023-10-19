@@ -1,3 +1,10 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: |
+      task: DotNetCoreCLI@2
+        displayName: 'Build the project'
+        inputs:
+          command: 'build'
+          arguments: '--no-restore --configuration Release'
+          projects: '**/*.csproj'
